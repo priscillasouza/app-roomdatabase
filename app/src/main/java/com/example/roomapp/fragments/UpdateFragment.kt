@@ -1,12 +1,11 @@
 package com.example.roomapp.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,6 +39,8 @@ class UpdateFragment : Fragment() {
             updateItem()
         }
 
+        setHasOptionsMenu(true)
+
         return view
     }
 
@@ -57,11 +58,40 @@ class UpdateFragment : Fragment() {
             Toast.makeText(requireContext(), "Sucesso ao atualizar", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Por favor digite todos os campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Por favor digite todos os campos", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
-    private fun inputCheck(name: String, lastName: String, age:Editable): Boolean {
+    private fun inputCheck(name: String, lastName: String, age: Editable): Boolean {
         return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age.isEmpty())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_delete, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete_item) {
+            deleteStudent()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteStudent() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Sim") { _, _ ->
+            mStudentViewModel.deleteStudent(args.currentStudent)
+            Toast.makeText(
+                requireContext(),
+                "Removido com sucesso: ${args.currentStudent.name}",
+                Toast.LENGTH_SHORT
+            ).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("Não") { _, _ -> }
+        builder.setTitle("Delete ${args.currentStudent.name}?")
+        builder.setMessage("Tem certeza de que deseja excluir ${args.currentStudent.name}?")
+        builder.create().show()
     }
 }

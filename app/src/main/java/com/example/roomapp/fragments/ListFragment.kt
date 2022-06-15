@@ -1,10 +1,10 @@
 package com.example.roomapp.fragments
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.adapter.ListAdpter
 import com.example.roomapp.viewmodel.StudentViewModel
-import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
@@ -41,6 +40,31 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
+        setHasOptionsMenu(true)
+
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_delete, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete_item){
+            deleteAllStudents()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteAllStudents() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Sim") { _, _ ->
+            mStudentViewModel.deleteAllStudents()
+            Toast.makeText(requireContext(), "Tudo removido com sucesso", Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton("Não") { _, _ -> }
+        builder.setTitle("Excluir tudo?")
+        builder.setMessage("Tem certeza de que deseja excluir tudo?")
+        builder.create().show()
     }
 }
