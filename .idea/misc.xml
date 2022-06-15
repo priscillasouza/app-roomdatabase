@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/drawable/background_button.xml" value="0.1825" />
+        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/drawable/background_item_recycler_view.xml" value="0.234" />
         <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/activity_main.xml" value="0.29270833333333335" />
-        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/fragment_add.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/fragment_add.xml" value="0.2" />
         <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/fragment_list.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/fragment_update.xml" value="0.2911458333333333" />
-        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/layout_item_recycler_view.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/layout/layout_item_recycler_view.xml" value="0.25" />
         <entry key="..\:/Users/prisc/Documents/RoomApp/app/src/main/res/menu/menu_delete.xml" value="0.1640625" />
       </map>
     </option>

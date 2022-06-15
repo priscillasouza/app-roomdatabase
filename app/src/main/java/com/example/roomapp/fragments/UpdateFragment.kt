@@ -50,7 +50,7 @@ class UpdateFragment : Fragment() {
         val age = Integer.parseInt(editTextAgeUpdate.text.toString())
         //val email = editTextEmailUpdate.text.toString()
 
-        if (inputCheck(name, lastName, editTextAgeUpdate.text)) {
+        if (inputCheck(name, lastName, editTextAgeUpdate.text.toString())) {
 
             //Cria o obejto student
             val updateStudent = Student(args.currentStudent.id, name, lastName, age)
@@ -63,7 +63,7 @@ class UpdateFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(name: String, lastName: String, age: Editable): Boolean {
+    private fun inputCheck(name: String, lastName: String, age: String): Boolean {
         return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age.isEmpty())
     }
 
