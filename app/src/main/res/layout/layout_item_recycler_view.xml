@@ -15,7 +15,7 @@
         android:id="@+id/textViewStudentId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,23 +25,23 @@
         android:id="@+id/textViewStudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewStudentLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewStudentAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewStudentEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 </androidx.appcompat.widget.LinearLayoutCompat>

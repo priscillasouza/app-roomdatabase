@@ -2,7 +2,6 @@ package com.example.roomapp.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -48,12 +47,12 @@ class UpdateFragment : Fragment() {
         val name = editTextNameUpdate.text.toString()
         val lastName = editTextLastNameUpdate.text.toString()
         val age = Integer.parseInt(editTextAgeUpdate.text.toString())
-        //val email = editTextEmailUpdate.text.toString()
+        val email = editTextEmailUpdate.text.toString()
 
-        if (inputCheck(name, lastName, editTextAgeUpdate.text.toString())) {
+        if (inputCheck(name, lastName, editTextAgeUpdate.text.toString(), email)) {
 
             //Cria o obejto student
-            val updateStudent = Student(args.currentStudent.id, name, lastName, age)
+            val updateStudent = Student(args.currentStudent.id, name, lastName, age, email)
             mStudentViewModel.updateStudent(updateStudent)
             Toast.makeText(requireContext(), "Sucesso ao atualizar", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
@@ -63,8 +62,8 @@ class UpdateFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(name: String, lastName: String, age: String): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age.isEmpty())
+    private fun inputCheck(name: String, lastName: String, age: String, email: String): Boolean {
+        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age.isEmpty() && TextUtils.isEmpty(email))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

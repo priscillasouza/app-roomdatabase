@@ -22,8 +22,6 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        //infla o layout para esse fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
         val adapter = ListAdpter()

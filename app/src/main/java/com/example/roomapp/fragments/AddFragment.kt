@@ -39,15 +39,15 @@ class AddFragment : Fragment() {
         val name = editTextNameAdd.text.toString()
         val lastName = editTextLastNameAdd.text.toString()
         val age = editTextAgeAdd.text
-        //val email = editTextEmailAdd.text.toString()
+        val email = editTextEmailAdd.text.toString()
 
-        if (inputCheck(name, lastName, age)) {
+        if (inputCheck(name, lastName, age, email)) {
             val student = Student(
                 0,
                 name,
                 lastName,
-                Integer.parseInt(age.toString())
-                //email
+                Integer.parseInt(age.toString()),
+                email
             )
             //adicionando dados no database
             mStudentViewModel.addStudent(student)
@@ -58,7 +58,7 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(name: String, lastName: String, age: Editable?): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age!!.isEmpty())
+    private fun inputCheck(name: String, lastName: String, age: Editable?, email: String): Boolean {
+        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(lastName) && age!!.isEmpty()  && TextUtils.isEmpty(email))
     }
 }

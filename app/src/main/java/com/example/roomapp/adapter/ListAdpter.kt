@@ -11,7 +11,6 @@ import com.example.roomapp.fragments.ListFragmentDirections
 import com.example.roomapp.model.Student
 import kotlinx.android.synthetic.main.layout_item_recycler_view.view.*
 
-
 class ListAdpter: RecyclerView.Adapter<ListAdpter.MyViewHolder>() {
 
     private var studentList = emptyList<Student>()
@@ -28,7 +27,7 @@ class ListAdpter: RecyclerView.Adapter<ListAdpter.MyViewHolder>() {
         holder.itemView.textViewStudentName.text = currentItem.name
         holder.itemView.textViewStudentLastName.text = currentItem.lastName
         holder.itemView.textViewStudentAge.text = currentItem.age.toString()
-        //holder.itemView.textViewStudentEmail.text = currentItem.email
+        holder.itemView.textViewStudentEmail.text = currentItem.email
 
         //quando clicar no item será direcionado para a tela de atualizar os dados
         holder.itemView.layoutRecyclerView.setOnClickListener {
